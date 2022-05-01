@@ -5,14 +5,14 @@
 template<typename T>
 class TPQueue {
   // реализация шаблона очереди с приоритетом на связанном списке
-   private:
+    private:
 	struct ITEM {
 		T data;
 		ITEM* next;
 	};
 	ITEM* start_s;
 
-  public:
+   public:
 	TPQueue():start_s(nullptr) {}
 	void push(T value) {
 		ITEM* start = start_s;
@@ -31,10 +31,10 @@ class TPQueue {
 			}
 			while (start != nullptr) {
 				if ((start->data.prior) >= (temp->data.prior) &&
-						((start->next) == nullptr ||
-						 (((start->data.prior) < (temp->data.prior)) ||
-							((start->next) != nullptr &&
-							 start->next->data.prior < (temp->data.prior))))) {
+				    ((start->next) == nullptr ||
+				     (((start->data.prior) < (temp->data.prior)) ||
+				      ((start->next) != nullptr &&
+				       start->next->data.prior < (temp->data.prior))))) {
 					temp->next = start->next;
 					start->next = temp;
 					return;
